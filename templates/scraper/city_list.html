@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scraped Data</title>
+</head>
+<body>
+    <h1>City Data</h1>
+    {% if data %}
+        <table border="1">
+            <thead>
+                <tr>
+                    <th>City</th>
+                    <th>Country</th>
+                    <th>Latitude</th>
+                    <th>Longitude</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for item in data %}
+                <tr>
+                    <td>{{ item.city }}</td>
+                    <td>{{ item.country }}</td>
+                    <td>{{ item.latitude }}</td>
+                    <td>{{ item.longitude }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% else %}
+        <p>No data available. Please check the scraping logic or the source website.</p>
+    {% endif %}
+</body>
+</html>
